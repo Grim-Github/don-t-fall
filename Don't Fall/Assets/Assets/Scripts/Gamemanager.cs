@@ -8,6 +8,7 @@ public class Gamemanager : MonoBehaviour
 	[SerializeField] private GameObject[] platform = null;
 	[SerializeField] [Range(0, 50)] private int powerupsAmount = 10;
 	[SerializeField] private GameObject[] powerups = null;
+	[SerializeField] private GameObject[] portals = null;
 	public float timePassed = 0;
 	public bool canPassTime = true;
 	private void Awake()
@@ -16,6 +17,7 @@ public class Gamemanager : MonoBehaviour
 		{
 			SpawnPowerups();
 		}
+		SpawnPortals();
 	}
 	private void LateUpdate()
 	{
@@ -36,6 +38,24 @@ public class Gamemanager : MonoBehaviour
 	{
 		Vector2 spawnpos = new Vector2(Random.Range(0, 100), Random.Range(0, 70));
 		Instantiate(powerups[Random.Range(0, powerups.Length)], spawnpos, Quaternion.identity);
+	}
+
+	public void SpawnPortals()
+	{
+		for (int i = 0; i < portals.Length; i++)
+		{
+			if(i == 0)
+			{
+				Vector2 spawnpos = new Vector2(Random.Range(20, 70), 75);
+				Instantiate(portals[i], spawnpos, Quaternion.identity);
+			}
+			else
+			{
+				Vector2 spawnpos = new Vector2(Random.Range(20, 70), 30);
+				Instantiate(portals[i], spawnpos, Quaternion.identity);
+			}
+			
+		}
 	}
 
 	public void Retry()

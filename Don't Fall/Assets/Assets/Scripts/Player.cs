@@ -74,9 +74,7 @@ public class Player : MonoBehaviour
 		}
 		else if (Input.GetMouseButtonUp(0))
 		{
-			distanceJoint.enabled = false;
-			grappled = false;
-			lineRenderer.positionCount = 0;
+			UnGrapple();
 			playerAudio.PlayOneShot(playerSounds[3]);
 		}
 
@@ -85,10 +83,7 @@ public class Player : MonoBehaviour
 			grappleTime -= Time.deltaTime;
 			if (grappleTime <= 0)
 			{
-				distanceJoint.enabled = false;
-				grappled = false;
-				lineRenderer.positionCount = 0;
-				grappled = false;
+				UnGrapple();
 			}
 		}
 		else
@@ -121,6 +116,13 @@ public class Player : MonoBehaviour
 		lineRenderer.SetPosition(0, grapplePoint);
 		lineRenderer.SetPosition(1, transform.position);
 		distanceJoint.distance = Mathf.Lerp(distanceJoint.distance , 0 , Time.deltaTime* 1.5f);
+	}
+
+	public void UnGrapple()
+	{
+		distanceJoint.enabled = false;
+		lineRenderer.positionCount = 0;
+		grappled = false;
 	}
 
 	public void UpdateStats()

@@ -1758,7 +1758,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0.039904412, y: 0.00000001732647, z: -6.9195366e-10, w: 0.9992035}
+  m_LocalRotation: {x: 0.039904412, y: -0.000000017326471, z: 6.9195377e-10, w: 0.9992035}
   m_LocalPosition: {x: 51.5, y: 67.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2165,7 +2165,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585985648}
-  m_LocalRotation: {x: 0.039904412, y: 0.00000001732647, z: -6.9195366e-10, w: 0.9992035}
+  m_LocalRotation: {x: 0.039904412, y: -0.000000017326471, z: 6.9195377e-10, w: 0.9992035}
   m_LocalPosition: {x: 51.5, y: 67.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3243,6 +3243,9 @@ MonoBehaviour:
   powerupsAmount: 10
   powerups:
   - {fileID: 8567434522844337806, guid: 0dec980dfeff0b148b8835af15e18f00, type: 3}
+  portals:
+  - {fileID: 4488859831916691536, guid: 6e30adb8887147a48b375989cdbc4ce8, type: 3}
+  - {fileID: 1079709355031161962, guid: 967227f39ed9f1c47a63cfcc198416dd, type: 3}
   timePassed: 0
   canPassTime: 1
 --- !u!4 &783489809
