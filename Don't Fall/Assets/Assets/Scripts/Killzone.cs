@@ -25,7 +25,7 @@ public class Killzone : MonoBehaviour
 		if (has1UP)
 		{
 			has1UP = false;
-			player.playerRigidbody.AddForce(Vector2.up * 2500);
+			player.playerRigidbody.AddForce(Vector2.up * 8600);
 			UPUI.SetActive(false);
 			player.playerAudio.PlayOneShot(sounds[1]);
 		}
