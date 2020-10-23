@@ -9,6 +9,7 @@ public class Gamemanager : MonoBehaviour
 	[SerializeField] [Range(0, 50)] private int powerupsAmount = 10;
 	[SerializeField] private GameObject[] powerups = null;
 	public float timePassed = 0;
+	public bool canPassTime = true;
 	private void Awake()
 	{
 		for (int i = 0; i < powerupsAmount; i++)
@@ -18,7 +19,10 @@ public class Gamemanager : MonoBehaviour
 	}
 	private void LateUpdate()
 	{
-		timePassed += Time.deltaTime;
+		if(canPassTime == true)
+		{
+			timePassed += Time.deltaTime;
+		}
 		timerUI.text = timePassed.ToString("#.00");
 	}
 
