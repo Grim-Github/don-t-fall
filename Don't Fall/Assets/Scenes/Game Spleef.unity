@@ -3828,7 +3828,7 @@ GameObject:
   - component: {fileID: 941707555}
   - component: {fileID: 941707554}
   m_Layer: 0
-  m_Name: KillZone (1)
+  m_Name: DeadZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

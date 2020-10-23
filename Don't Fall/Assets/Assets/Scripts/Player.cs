@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 	private Rigidbody2D playerRigidbody;
 	private Animator playerAnimator;
 	private LineRenderer lineRenderer;
+	private float trailTime;
 	private Vector2 grapplePoint;
 	private float grappleTime;
 	private bool grappled;
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
 			jumpUIImage.GetComponent<Animator>().SetTrigger("Trigger");
 			jumpUIText.text = jumpsLeft.ToString();
 			playerAnimator.SetTrigger("Jump");
+			trailTime += 1.3f;
 		}
 
 		if (Input.GetMouseButtonDown(0))
@@ -66,6 +68,7 @@ public class Player : MonoBehaviour
 				grappleUIText.text = grapplesLeft.ToString();
 				grappleUIImage.GetComponent<Animator>().SetTrigger("Trigger");
 				playerAudio.PlayOneShot(playerSounds[2]);
+				trailTime += 1f;
 				Instantiate(wallParticle, grapplePoint, Quaternion.identity);
 			}
 		}
@@ -92,7 +95,6 @@ public class Player : MonoBehaviour
 		{
 			grappleTime = grappleTimer;
 		}
-
 		DrawLine();
 
 	}
@@ -119,7 +121,7 @@ public class Player : MonoBehaviour
 		lineRenderer.SetPosition(0, grapplePoint);
 		lineRenderer.SetPosition(1, transform.position);
 		distanceJoint.distance = Mathf.Lerp(distanceJoint.distance , 0 , Time.deltaTime* 1.5f);
-	}	
+	}
 
 	public void UpdateStats()
 	{
