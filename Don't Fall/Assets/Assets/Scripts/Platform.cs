@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
+	[Header("Settings")]
 	[SerializeField] private bool onTouchDestroy = false;
+	[SerializeField] [Range(0, 100)] private int chanceToRespawn = 70;
 	private Gamemanager globalGameManager;
+	private bool hit = false;
 
 	private void Awake()
 	{
@@ -20,8 +23,16 @@ public class Platform : MonoBehaviour
 			GetComponent<SpriteRenderer>().color = new Color(255,255,255);
 			if(onTouchDestroy == true)
 			{
-				Destroy(gameObject, Random.Range(1, 3));
-				globalGameManager.SpawnPlatform();
+				if(hit == false)
+				{
+					Destroy(gameObject, Random.Range(1, 3));
+					if (Random.Range(0,100) < chanceToRespawn)
+					{
+						globalGameManager.SpawnPlatform();
+					}
+					hit = true;
+				}
+
 			}
 
 		}

@@ -15,12 +15,12 @@ public class Player : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI grappleUIText = null;
 	[SerializeField] private AudioClip[] playerSounds = null;
 
-	private int jumpsLeft = 0;
+	public int jumpsLeft = 0;
 	public int grapplesLeft = 15;
 	private Camera playerCamera;
     [HideInInspector] public AudioSource playerAudio;
 	private DistanceJoint2D distanceJoint;
-	private Rigidbody2D playerRigidbody;
+	public Rigidbody2D playerRigidbody;
 	private Animator playerAnimator;
 	private LineRenderer lineRenderer;
 	private float trailTime;
