@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  teleportClip: {fileID: 8300000, guid: 5f3890b901a1fa943bd16312c3c20d60, type: 3}
+  destroyAfterUse: 1
 --- !u!61 &1079709355031161961
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ public class Gamemanager : MonoBehaviour
 	{
 		for (int i = 0; i < portals.Length; i++)
 		{
-			if(i == 0)
+			if(i == 1)
 			{
 				Vector2 spawnpos = new Vector2(Random.Range(20, 70), 75);
 				Instantiate(portals[i], spawnpos, Quaternion.identity);
