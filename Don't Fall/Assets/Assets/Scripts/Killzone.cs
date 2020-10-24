@@ -24,25 +24,29 @@ public class Killzone : MonoBehaviour
 	{
 		if (has1UP)
 		{
-			has1UP = false;
-			player.playerRigidbody.AddForce(Vector2.up * 8600);
-			UPUI.SetActive(false);
-			player.playerAudio.PlayOneShot(sounds[1]);
+			Take1UP(true);
 		}
 		else
 		{
-			losePanel.SetActive(true);
-			Time.timeScale = 0.1f;
-			cmc.m_Lens.OrthographicSize = Mathf.Lerp(cmc.m_Lens.OrthographicSize, 0.5f, Time.deltaTime * 35);
-			GameObject.FindGameObjectWithTag("GameManager").GetComponent<AudioSource>().pitch = 0.4f;
-			player.playerAudio.PlayOneShot(sounds[0]);
-			gameManager.canPassTime = false;
-			if (gameManager.timePassed > PlayerPrefs.GetFloat("bestTime"))
-			{
-				PlayerPrefs.SetFloat("bestTime", gameManager.timePassed);
-			}
-			bestTimeText.text = "BEST TIME: " + Mathf.Round(PlayerPrefs.GetFloat("bestTime"));
+			Die();
 		}
+	}
+
+	public void Die()
+	{
+		losePanel.SetActive(true);
+		Time.timeScale = 0.1f;
+		cmc.m_Lens.OrthographicSize = Mathf.Lerp(cmc.m_Lens.OrthographicSize, 0.5f, Time.deltaTime * 15);
+		GameObject.FindGameObjectWithTag("GameManager").GetComponent<AudioSource>().pitch = 0.4f;
+		player.playerAudio.PlayOneShot(sounds[0]);
+		player.GetComponent<SpriteRenderer>().color = Color.black;
+		player.canMove = false;
+		gameManager.canPassTime = false;
+		if (gameManager.timePassed > PlayerPrefs.GetFloat("bestTime"))
+		{
+			PlayerPrefs.SetFloat("bestTime", gameManager.timePassed);
+		}
+		bestTimeText.text = "BEST TIME: " + Mathf.Round(PlayerPrefs.GetFloat("bestTime"));
 	}
 
 	public void Give1UP()
@@ -50,4 +54,16 @@ public class Killzone : MonoBehaviour
 		UPUI.SetActive(true);
 		has1UP = true;
 	}
+
+	public void Take1UP(bool launch)
+	{
+		has1UP = false;
+		if(launch)
+		{
+			player.playerRigidbody.AddForce(Vector2.up * 8600);
+		}
+		UPUI.SetActive(false);
+		player.playerAudio.PlayOneShot(sounds[1]);
+	}
+
 }

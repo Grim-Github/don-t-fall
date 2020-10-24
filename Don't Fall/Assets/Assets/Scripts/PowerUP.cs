@@ -18,10 +18,13 @@ public class PowerUP : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		OnPickUp.Invoke();
-		player.playerAudio.PlayOneShot(pickupSound);
-		player.UpdateStats();
-		Destroy(gameObject);
+		if(collision.transform.CompareTag("Player"))
+		{
+			OnPickUp.Invoke();
+			player.playerAudio.PlayOneShot(pickupSound);
+			player.UpdateStats();
+			Destroy(gameObject);
+		}
 	}
 
 	public void GrappleUP()

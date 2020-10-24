@@ -8,10 +8,12 @@ public class Portal : MonoBehaviour
 	[SerializeField] private bool destroyAfterUse = true;
 
 	private Player player;
+	private Gamemanager gamemanager;
 
 	private void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Gamemanager>();
 	}
 
 
@@ -19,6 +21,7 @@ public class Portal : MonoBehaviour
 	{
 		if (collision.transform.CompareTag("Player"))
 		{
+			gamemanager.startPortalCoroutine();
 			Teleport();
 		}
 	}

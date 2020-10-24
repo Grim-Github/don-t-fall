@@ -15,7 +15,7 @@ public class Platform : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.transform.CompareTag("Player"))
+		if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Bullet"))
 		{
 			GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
 			if (onTouchDestroy == true)

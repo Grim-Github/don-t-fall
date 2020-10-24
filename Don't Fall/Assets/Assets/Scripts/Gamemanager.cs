@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class Gamemanager : MonoBehaviour
@@ -9,6 +10,9 @@ public class Gamemanager : MonoBehaviour
 	[SerializeField] [Range(0, 50)] private int powerupsAmount = 10;
 	[SerializeField] private GameObject[] powerups = null;
 	[SerializeField] private GameObject[] portals = null;
+	[SerializeField] private GameObject enemy = null;
+	[SerializeField] [Range(0, 50)] private int enemyAmount = 5;
+
 	public float timePassed = 0;
 	public bool canPassTime = true;
 	private void Awake()
@@ -16,6 +20,11 @@ public class Gamemanager : MonoBehaviour
 		for (int i = 0; i < powerupsAmount; i++)
 		{
 			SpawnPowerups();
+		}
+
+		for (int i = 0; i < enemyAmount; i++)
+		{
+			SpawnEnemy();
 		}
 		SpawnPortals();
 	}
@@ -38,6 +47,12 @@ public class Gamemanager : MonoBehaviour
 	{
 		Vector2 spawnpos = new Vector2(Random.Range(0, 100), Random.Range(0, 70));
 		Instantiate(powerups[Random.Range(0, powerups.Length)], spawnpos, Quaternion.identity);
+	}
+
+	public void SpawnEnemy()
+	{
+		Vector2 spawnpos = new Vector2(Random.Range(0, 100), Random.Range(0, 70));
+		Instantiate(enemy, spawnpos, Quaternion.identity);
 	}
 
 	public void SpawnPortals()
@@ -67,5 +82,16 @@ public class Gamemanager : MonoBehaviour
 	public void QuitGame()
 	{
 		Application.Quit();
+	}
+
+	public void startPortalCoroutine()
+	{
+		StartCoroutine(newPortal(Random.Range(20,100)));
+	}
+
+	public IEnumerator newPortal(float time)
+	{
+		yield return new WaitForSeconds(time);
+		SpawnPortals();
 	}
 }
