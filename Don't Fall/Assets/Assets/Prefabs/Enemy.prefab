@@ -181,10 +181,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7764225321539096823, guid: a6df79543f03e8940b1cd90d071f4c4b, type: 3}
   shootClip: {fileID: 8300000, guid: f3d912a7961a4b244b67b315eaa1ed93, type: 3}
-  detectionRange: 12.5
+  detectionRange: 11
   barrelTransform: {fileID: 1417334671401295266}
-  bulletForce: 420
-  fireRate: 0.5
+  bulletForce: 390
+  fireRate: 0.85
 --- !u!82 &-7366912177434549831
 AudioSource:
   m_ObjectHideFlags: 0
