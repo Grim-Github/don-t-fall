@@ -21,7 +21,6 @@ public class Portal : MonoBehaviour
 	{
 		if (collision.transform.CompareTag("Player"))
 		{
-			gamemanager.startPortalCoroutine();
 			Teleport();
 		}
 	}
@@ -39,6 +38,7 @@ public class Portal : MonoBehaviour
 				player.playerAudio.PlayOneShot(teleportClip);
 				if(destroyAfterUse == true)
 				{
+					gamemanager.startPortalCoroutine();
 					Destroy(gameObject);
 					Destroy(foundPortal.gameObject);
 				}
