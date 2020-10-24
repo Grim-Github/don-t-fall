@@ -22,13 +22,16 @@ public class Killzone : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (has1UP)
+		if(collision.transform.CompareTag("Player"))
 		{
-			Take1UP(true);
-		}
-		else
-		{
-			Die();
+			if (has1UP)
+			{
+				Take1UP(true);
+			}
+			else
+			{
+				Die();
+			}
 		}
 	}
 
