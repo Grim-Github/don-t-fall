@@ -1,7 +1,6 @@
 ﻿using Cinemachine;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 public class Killzone : MonoBehaviour
 {
@@ -12,17 +11,19 @@ public class Killzone : MonoBehaviour
 	[SerializeField] private GameObject UPUI = null;
 	private Player player;
 	private Gamemanager gameManager;
+	private Money moneyManager;
 	public bool has1UP = true;
 
 	private void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 		gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Gamemanager>();
+		moneyManager = GameObject.FindGameObjectWithTag("MoneyManager").GetComponent<Money>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if(collision.transform.CompareTag("Player"))
+		if (collision.transform.CompareTag("Player"))
 		{
 			if (has1UP)
 			{
@@ -30,7 +31,10 @@ public class Killzone : MonoBehaviour
 			}
 			else
 			{
-				Die();
+				if(player.canMove == true)
+				{
+					Die();
+				}
 			}
 		}
 	}
@@ -45,6 +49,8 @@ public class Killzone : MonoBehaviour
 		player.GetComponent<SpriteRenderer>().color = Color.black;
 		player.canMove = false;
 		gameManager.canPassTime = false;
+		moneyManager.IncreaseMoney((int)(gameManager.timePassed / 100));
+		PlayerPrefs.SetInt("money", Money.moneyCount);
 		if (gameManager.timePassed > PlayerPrefs.GetFloat("bestTime"))
 		{
 			PlayerPrefs.SetFloat("bestTime", gameManager.timePassed);
@@ -61,7 +67,7 @@ public class Killzone : MonoBehaviour
 	public void Take1UP(bool launch)
 	{
 		has1UP = false;
-		if(launch)
+		if (launch)
 		{
 			player.playerRigidbody.AddForce(Vector2.up * 8600);
 		}

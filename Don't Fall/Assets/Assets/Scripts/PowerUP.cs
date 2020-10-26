@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class PowerUP : MonoBehaviour
@@ -18,7 +16,7 @@ public class PowerUP : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if(collision.transform.CompareTag("Player"))
+		if (collision.transform.CompareTag("Player"))
 		{
 			OnPickUp.Invoke();
 			player.playerAudio.PlayOneShot(pickupSound);
@@ -34,7 +32,7 @@ public class PowerUP : MonoBehaviour
 
 	public void OneLife()
 	{
-		if(killZone.has1UP == false)
+		if (killZone.has1UP == false)
 		{
 			killZone.Give1UP();
 		}

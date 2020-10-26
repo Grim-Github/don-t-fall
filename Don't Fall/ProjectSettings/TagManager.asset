@@ -8,6 +8,8 @@ TagManager:
   - GameManager
   - KillZone
   - Bullet
+  - MoneyManager
+  - InventoryManager
   layers:
   - Default
   - TransparentFX

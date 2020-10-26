@@ -17,6 +17,7 @@ public class Gamemanager : MonoBehaviour
 	public bool canPassTime = true;
 	private void Awake()
 	{
+		Time.timeScale = 1;
 		for (int i = 0; i < powerupsAmount; i++)
 		{
 			SpawnPowerups();
@@ -76,7 +77,6 @@ public class Gamemanager : MonoBehaviour
 	public void Retry()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		Time.timeScale = 1;
 	}
 
 	public void QuitGame()

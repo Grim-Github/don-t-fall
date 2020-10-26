@@ -1,11 +1,14 @@
 {
     "name": "Grim",
     "references": [
+        "GUID:4307f53044263cf4b835bd812fc161a4",
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:4307f53044263cf4b835bd812fc161a4"
+        "GUID:c75ea1b2c7eee174fa08299f9e803e2f"
     ],
     "includePlatforms": [],
-    "excludePlatforms": [],
+    "excludePlatforms": [
+        "macOSStandalone"
+    ],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
