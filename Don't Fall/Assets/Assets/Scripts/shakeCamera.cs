@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class shakeCamera : MonoBehaviour
 {
-	[SerializeField] private CinemachineVirtualCamera cmc;
+	[SerializeField] private CinemachineVirtualCamera cmc = null;
 	private Player player;
 
 	private void Awake()
