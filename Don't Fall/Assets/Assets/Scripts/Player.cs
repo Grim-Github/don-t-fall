@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 	[SerializeField] public float speed = 3;
 	[SerializeField] public float jumpPower = 200;
 	[SerializeField] private float grappleTimer = 10;
+	[Header("GameObjects")]
 	[SerializeField] private ParticleSystem wallParticle = null;
 	[SerializeField] private ParticleSystem groundParticle = null;
 	[SerializeField] private TextMeshProUGUI jumpUIText = null;

@@ -16,13 +16,12 @@ public class Money : MonoBehaviour
 		{
 			UpdateUI();
 		}
-
-		Debug.Log(moneyCount);
 	}
 
 	public void IncreaseMoney(int value)
 	{
 		moneyCount += value;
+		moneyUI.GetComponentInParent<Animator>().SetTrigger("Trigger");
 		audioSource.PlayOneShot(moneyUp);
 		if (moneyUI != null)
 		{

@@ -14,11 +14,16 @@ public class Shop : MonoBehaviour
 
 	private void Awake()
 	{
-		owned = SaveGame.Load<bool>(shopName, owned);
+		if(SaveGame.Exists(shopName))
+		{
+			owned = SaveGame.Load<bool>(shopName, owned);
+		}
+
 		if (owned == true || price == 0)
 		{
 			Destroy(GetComponentInChildren<TextMeshProUGUI>().gameObject);
 		}
+
 		priceUI = GetComponentInChildren<TextMeshProUGUI>();
 		priceUI.text = price.ToString();
 		moneyManager = GameObject.FindGameObjectWithTag("MoneyManager").GetComponent<Money>();
@@ -34,7 +39,6 @@ public class Shop : MonoBehaviour
 			moneyManager.UpdateUI();
 			PlayerPrefs.SetInt("money", Money.moneyCount);
 			Destroy(GetComponentInChildren<TextMeshProUGUI>().gameObject);
-			Debug.Log("Bought Item");
 		}
 
 		if(owned == true || price == 0)

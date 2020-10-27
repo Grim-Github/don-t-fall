@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2773080108239750504}
   - component: {fileID: 2773080108239750506}
   - component: {fileID: 2773080108239750507}
+  - component: {fileID: 7008302852522337742}
   m_Layer: 5
   m_Name: CoinUI
   m_TagString: Untagged
@@ -76,6 +77,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7008302852522337742
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773080108239750505}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d23126e6c2be474f99e8803b43950d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2773080108512288471
 GameObject:
   m_ObjectHideFlags: 0

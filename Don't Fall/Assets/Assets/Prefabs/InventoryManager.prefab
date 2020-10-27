@@ -47,5 +47,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c1a12b7481f8d3b4fbc1846d44386144, type: 3}
   - {fileID: 21300000, guid: e1ed0b88a23f41445886e09a49a358d7, type: 3}
   - {fileID: 21300000, guid: bc21b86ecd0d8c64d95e843415eac318, type: 3}
+  playerColors:
+  - {r: 1, g: 0, b: 0.027406693, a: 1}
+  - {r: 1, g: 0.5019608, b: 0, a: 1}
+  - {r: 0.101960786, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.22745098, b: 1, a: 1}
   selectedSprite: 0
+  selectedColor: 0
   player: {fileID: 0}

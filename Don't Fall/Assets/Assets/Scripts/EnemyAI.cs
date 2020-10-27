@@ -2,8 +2,10 @@
 
 public class EnemyAI : MonoBehaviour
 {
+	[Header("GameObjects")]
 	[SerializeField] private GameObject bullet = null;
 	[SerializeField] private AudioClip shootClip = null;
+	[Header("Settings")]
 	[SerializeField] private float detectionRange = 5;
 	[SerializeField] private Transform barrelTransform = null;
 	[SerializeField] private float bulletForce = 60;
