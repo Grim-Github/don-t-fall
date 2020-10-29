@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 					grappled = true;
 					lineRenderer.positionCount = 2;
 					distanceJoint.connectedAnchor = grapplePoint;
-					playerRigidbody.AddForce((grapplePoint - (Vector2)transform.position).normalized * 15500);
+					playerRigidbody.AddForce((grapplePoint - (Vector2)transform.position).normalized * 15000);
 					grappleUIText.text = grapplesLeft.ToString();
 					grappleUIImage.GetComponent<Animator>().SetTrigger("Trigger");
 					playerAudio.PlayOneShot(playerSounds[2]);
@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
 		if (lineRenderer.positionCount <= 0) return;
 		lineRenderer.SetPosition(0, grapplePoint);
 		lineRenderer.SetPosition(1, transform.position);
-		distanceJoint.distance = Mathf.Lerp(distanceJoint.distance , 0 , Time.deltaTime* 1.5f);
+		distanceJoint.distance = Mathf.SmoothStep(distanceJoint.distance , 0 , Time.deltaTime* 5);
 	}
 
 	public void UnGrapple()

@@ -27,7 +27,6 @@ public class EnemyAI : MonoBehaviour
 		}
 	}
 
-
 	private void Update()
 	{
 		float distance = Vector2.Distance(player.transform.position, transform.position);
